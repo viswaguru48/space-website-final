@@ -1,0 +1,371 @@
+@import url(https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Bellefair&display=swap);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color:#ffff;
+    --color1: #000000;
+    --color2:#d2d8f9;
+    --color3:rgb(231 77% 90%);
+    --color4:#d2d8f940;
+    --font-family-1: 'Barlow', sans-serif;
+    --font-family-2: 'Barlow Condensed', sans-serif;
+    --font-family-3: 'Bellefair', serif;
+}
+
+body{
+    background-image: url(../assets/crew/background-crew-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    /* overflow: hidden; */
+    background-attachment: fixed;
+}
+
+/* -------------Navbar-------------- */
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 96px;
+    margin: 32px 0;
+}
+.logo{
+    margin: 24px 56px;
+    order: -1;
+}
+.navlinks{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding: 0px 10%;
+    backdrop-filter: blur(35px);
+    background-color: #ffffff13;
+    margin-right: 0px;
+}
+.navlinks span{
+    margin-right: 10px;
+    font-weight: 600;
+}
+.navlinks a{
+    color: var(--primary-color);
+    font-family: var(--font-family-2);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding:34px 0 ;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+.navlinks a:hover{
+    border-bottom: 3px solid rgba(255, 255, 255, 0.452);
+}
+.navlinks >.active{
+    border-bottom: 3px solid var(--primary-color);
+}
+.navbar::before{
+    content: '';
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    opacity: .3;
+    left: 20px;
+    z-index: 1;
+}
+
+/* -------------Navbar-------------- */
+
+.crewcontainer{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(1rem,1fr) minmax(0, 35rem) minmax(0, 35rem) 1fr;
+    grid-template-rows: 74px 452px 1fr;
+    gap: 0 2rem;
+}
+.heading{
+    grid-column-start: 2;
+    grid-column-end: 5;
+    top: 0;
+    padding-top: 2rem;
+    position: relative;
+}
+.heading span{
+    font-weight: bolder;
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    opacity: .3;
+    font-family: var(--font-family-2);
+    margin-right: .5em;
+}
+.heading h1{
+    width: 100%;
+    font-size: 1.75rem;
+    font-family: var(--font-family-2);
+    color: var(--primary-color);
+    letter-spacing: 4px;
+    font-weight: 400;
+}
+.commander{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    gap: 12pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.commander h2{
+    font-family: var(--font-family-3);
+    color: var(--primary-color);
+    font-weight: 400;
+    font-size: 2rem;
+    opacity: .5;
+    line-height: 1.1;
+}
+.commander span{
+    font-family: var(--font-family-3);
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+.commander p{
+    line-height: 1.5;
+    max-width: 50ch;
+    font-family: var(--font-family-1);
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+.btn{
+    grid-area: 3/2/4/3;
+    display: flex;
+    align-items: center;
+}
+.btn a{
+    width: 18px;
+    height: 18px;
+    background-color: var(--primary-color);
+    opacity: .25;
+    border-radius: 50%;
+    margin: 10px;
+}
+.btn a:hover{
+    background-color: var(--primary-color);
+    opacity: .5;
+}
+.btn > .active{
+    background-color: var(--primary-color);
+    opacity: 1;
+}
+.image{
+    grid-area: 2/3/4/4;
+    max-width: 100%;
+    align-self: self-end;
+}
+.image img{
+    max-width: 100%;
+}
+#check{
+    display: none;
+}
+.menu{
+    color: var(--color2);
+    font-size: 1.8rem;
+    margin-right: 20px;
+    display: none;
+    cursor: pointer;
+}
+.cancel{
+    position: absolute;
+    color: var(--color2);
+    font-size: 1.8rem;
+    margin-right: 20px;
+    margin-top: 70px;
+    display: none;
+    cursor: pointer;
+    z-index: 2;
+    right: 0;
+}
+@media (max-width: 719px){
+    body{
+        background-image: url(../assets/crew/background-crew-tablet.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        background-attachment: fixed;
+        /* overflow: hidden; */
+    }
+    .logo{
+        position: absolute;
+        top: 0;
+        margin: 20px;
+    }
+    .navbar::before{
+        display: none;
+    }
+    .navlinks{
+        display: flex;
+        gap: 30px;
+        padding:0 2%;
+        backdrop-filter: blur(35px);
+        background-color: #ffffff13;
+        right: 0px;
+        top: 0;
+        position: absolute;
+    }
+
+    .navlinks a{
+        font-size: .8rem;
+    }
+    .crewcontainer{
+        display: grid;
+        justify-content: center;
+        grid-template-rows: 74px 186px 32px 1fr;
+        grid-template-columns: 607px 0 0 0;
+        gap: 0;
+        height: 100vh;
+        position: absolute;
+        top: 80px;
+    }
+
+    .heading{
+        grid-area: 1/1/2/2;
+    }
+    .commander{
+        margin-top: 50px;
+        grid-area: 2/1/3/2;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .commander h2{
+        font-size: 1.5rem;
+    }
+    .commander span{
+        font-size: 2.5rem;
+    }
+    .commander p{
+        font-size: 1rem;
+    }
+    .btn{
+        margin-top: 50px;
+        grid-area: 3/1/4/2;
+        justify-content: center;
+    }
+    .image{
+        grid-area: 4/1/5/2;
+        max-width: 60%;
+        margin-left: 130px;
+    }
+}
+@media (max-width: 560px){
+    body{
+        background-image: url(../assets/crew/background-crew-mobile.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        background-attachment: fixed;
+        
+    }
+    .logo{
+        margin:20px;
+    }
+    .navbar{
+        position: relative;
+        margin-top: 0px;
+        height: 100%;
+    }
+    .navbar::before{
+        display: none;
+    }
+    .menu{
+        display: block;
+        top: 20px ;
+        right: 0;
+        position: absolute;
+    }
+    .navlinks{
+        justify-content: flex-start;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: -0pt;
+        right: -10px;
+        gap: 0;
+        padding-top: 8rem;
+        width: 350px;
+        height: 100vh;
+        z-index: 1;
+        display: none;
+    }
+    .navlinks a{
+        font-size: 1rem;
+        height: 50pt;
+        margin-top: -10px;
+        padding: 20pt;
+    }
+    #check:checked ~ .navlinks{
+        display: flex;
+    }
+    #check:checked ~ .cancel{
+        display: block;
+    }
+    .crewcontainer{
+        justify-content: center;
+        display: grid;
+        grid-template-rows: 63px 420px 52px 1fr;
+        grid-template-columns: 468px 0 0 0;
+        gap: 0;
+        width: 100%;
+    }
+    .heading{
+        width: 82%;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        order: 0;
+        text-align: center;
+        margin-left: 40px;
+    }
+    .image{
+        grid-area: 2/1/3/2;
+        margin-left: 80px;
+        margin-bottom: -30px;
+    }
+    
+    .btn{
+        width: 82%;
+        grid-area: 3/1/4/2;
+        justify-content: center;
+        margin-left: 40px;
+    }
+    .commander{
+        margin-left: 40px;
+        width: 82%;
+        margin-bottom: 1005px;
+        align-items: center;
+        grid-area: 4/1/5/2;
+    }
+    .commander h2{
+        font-size: 1rem;
+    }
+    .commander span{
+        font-size: 1.5rem;
+    }
+    .commander p{
+        text-align: center;
+        font-size: .9rem;
+        margin: 0 50px;
+    }
+}
